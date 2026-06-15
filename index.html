@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NexTask — Futuristic To-Do</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+</head>
+<body class="dark-mode">
+
+  <!-- Animated background -->
+  <div class="bg-canvas">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+    <canvas id="particles"></canvas>
+  </div>
+
+  <!-- Toast container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- App wrapper -->
+  <div class="app-wrapper">
+
+    <!-- Header -->
+    <header class="app-header">
+      <div class="logo">
+        <span class="logo-icon">⬡</span>
+        <h1>Nex<span class="accent">Task</span></h1>
+      </div>
+      <button class="theme-toggle" id="themeToggle" title="Toggle theme">
+        <span class="toggle-icon">🌙</span>
+      </button>
+    </header>
+
+    <!-- Stats bar -->
+    <section class="stats-bar" id="statsBar">
+      <div class="stat-pill">
+        <span class="stat-label">Total</span>
+        <span class="stat-value" id="totalCount">0</span>
+      </div>
+      <div class="stat-pill">
+        <span class="stat-label">Pending</span>
+        <span class="stat-value pending" id="pendingCount">0</span>
+      </div>
+      <div class="stat-pill">
+        <span class="stat-label">Done</span>
+        <span class="stat-value done" id="doneCount">0</span>
+      </div>
+    </section>
+
+    <!-- Input section -->
+    <section class="input-section glass-card">
+      <div class="input-row">
+        <div class="input-wrap">
+          <input type="text" id="taskInput" class="task-input" placeholder="Enter a new task…" autocomplete="off" />
+          <span class="input-error" id="inputError">Task cannot be empty!</span>
+        </div>
+        <button class="btn-add" id="addBtn">
+          <span>+</span> Add Task
+        </button>
+      </div>
+      <div class="meta-row">
+        <select class="select-field" id="prioritySelect">
+          <option value="low">🔵 Low</option>
+          <option value="medium" selected>🟠 Medium</option>
+          <option value="high">🔴 High</option>
+        </select>
+        <input type="date" id="dueDateInput" class="date-field" />
+      </div>
+    </section>
+
+    <!-- Controls -->
+    <section class="controls-section">
+      <div class="search-wrap">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="searchInput" class="search-input" placeholder="Search tasks…" />
+      </div>
+      <div class="filter-group">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="active">Active</button>
+        <button class="filter-btn" data-filter="completed">Completed</button>
+      </div>
+      <button class="btn-clear" id="clearCompletedBtn">Clear Done</button>
+    </section>
+
+    <!-- Task list -->
+    <section class="task-list-section">
+      <div class="task-list" id="taskList"></div>
+      <div class="empty-state" id="emptyState">
+        <div class="empty-icon">📋</div>
+        <p>No tasks yet. Add one above!</p>
+      </div>
+    </section>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
